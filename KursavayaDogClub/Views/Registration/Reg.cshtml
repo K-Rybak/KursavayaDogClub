@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Reg";
+}
+
+<div class="container mregister">
+    <div id="registerfrom">
+        <h1>Регистрация</h1>
+        <form action="" id="registerform" method="post">
+            <p>
+                <label for="user_login">
+                    Введите логин<br>
+                    <input class="input" id="username" name="LOGIN" size="20" type="text" value="">
+                </label>
+            </p>
+            <p>
+                <label for="user_pass">
+                    Введите пароль<br>
+                    <input class="input" id="password" name="PASSWORD" size="32" type="password" value="">
+                </label>
+            </p>
+
+            <p class="submit"><input class="button" id="registr" type="submit" value="Зарегистрироваться"></p>
+            <p class="regtext">Уже зарегистрированы? <a href="/Home/Index">Авторизация</a></p>
+        </form>
+    </div>
+</div>
+
