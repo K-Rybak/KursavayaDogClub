@@ -1,0 +1,82 @@
+﻿@model KursavayaDogClub.Models.DOG
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DOG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BREED.BREED_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BREED.BREED_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OWNER.OWNER_SURNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OWNER.OWNER_SURNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOG_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOG_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIRTH_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIRTH_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEATH_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEATH_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_FATHER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_FATHER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_MOTHER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_MOTHER)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DOG_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

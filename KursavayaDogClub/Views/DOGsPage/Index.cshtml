@@ -1,0 +1,88 @@
+﻿@model IEnumerable<KursavayaDogClub.Models.DOG>
+
+@{
+    ViewBag.Title = "Собаки";
+}
+
+<h2>Собаки</h2>
+
+<p>
+    @Html.ActionLink("Добавить запись", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BREED.BREED_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OWNER.OWNER_SURNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOG_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BIRTH_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEATH_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_FATHER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MOTHER)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BREED.BREED_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OWNER.OWNER_SURNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOG_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BIRTH_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEATH_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEX)
+        </td>
+        @{
+            var father = Model.Where(x => x.DOG_ID == item.ID_FATHER).Select(x => x.DOG_NAME).FirstOrDefault();
+        }
+        <td>
+            @if (father != null)
+            {
+                @Html.DisplayFor(modelItem => father)
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.ID_FATHER)
+            }
+        </td>
+        @{
+            var mother = Model.Where(x => x.DOG_ID == item.ID_MOTHER).Select(x => x.DOG_NAME).FirstOrDefault();
+        }
+        <td>
+            @Html.DisplayFor(modelItem => mother)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DOG_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DOG_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DOG_ID })
+        </td>
+    </tr>
+}
+
+</table>

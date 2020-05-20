@@ -1,0 +1,42 @@
+﻿@model KursavayaDogClub.Models.DOG_AWARD
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DOG_AWARD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AWARD.AWARD_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AWARD.AWARD_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOG.DOG_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOG.DOG_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_AWARD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_AWARD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PRIMARY }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

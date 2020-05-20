@@ -1,0 +1,33 @@
+﻿@model IEnumerable<KursavayaDogClub.Models.STREET>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.STREET_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.STREET_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.STREET_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.STREET_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.STREET_ID })
+        </td>
+    </tr>
+}
+
+</table>

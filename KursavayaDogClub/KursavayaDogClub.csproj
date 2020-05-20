@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
@@ -134,8 +134,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddNewUserController.cs" />
+    <Compile Include="Controllers\AwardsController.cs" />
+    <Compile Include="Controllers\BreedsController.cs" />
+    <Compile Include="Controllers\DistrictsController.cs" />
+    <Compile Include="Controllers\DogAwardsController.cs" />
+    <Compile Include="Controllers\DOGsPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OWNERsController.cs" />
+    <Compile Include="Controllers\QueryOneController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\StreetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,6 +156,7 @@
     <Compile Include="Models\DogDbContext.cs" />
     <Compile Include="Models\DOG_AWARD.cs" />
     <Compile Include="Models\OWNER.cs" />
+    <Compile Include="Models\QueryOneModel.cs" />
     <Compile Include="Models\STREET.cs" />
     <Compile Include="Models\USERJOURNAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,6 +196,43 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Registration\Reg.cshtml" />
+    <Content Include="Views\DOGsPage\Create.cshtml" />
+    <Content Include="Views\DOGsPage\Delete.cshtml" />
+    <Content Include="Views\DOGsPage\Details.cshtml" />
+    <Content Include="Views\DOGsPage\Edit.cshtml" />
+    <Content Include="Views\DOGsPage\Index.cshtml" />
+    <Content Include="Views\OWNERs\Create.cshtml" />
+    <Content Include="Views\OWNERs\Delete.cshtml" />
+    <Content Include="Views\OWNERs\Details.cshtml" />
+    <Content Include="Views\OWNERs\Edit.cshtml" />
+    <Content Include="Views\OWNERs\Index.cshtml" />
+    <Content Include="Views\DogAwards\Create.cshtml" />
+    <Content Include="Views\DogAwards\Delete.cshtml" />
+    <Content Include="Views\DogAwards\Details.cshtml" />
+    <Content Include="Views\DogAwards\Edit.cshtml" />
+    <Content Include="Views\DogAwards\Index.cshtml" />
+    <Content Include="Views\Breeds\Create.cshtml" />
+    <Content Include="Views\Breeds\Delete.cshtml" />
+    <Content Include="Views\Breeds\Details.cshtml" />
+    <Content Include="Views\Breeds\Edit.cshtml" />
+    <Content Include="Views\Breeds\Index.cshtml" />
+    <Content Include="Views\Awards\Create.cshtml" />
+    <Content Include="Views\Awards\Delete.cshtml" />
+    <Content Include="Views\Awards\Details.cshtml" />
+    <Content Include="Views\Awards\Edit.cshtml" />
+    <Content Include="Views\Awards\Index.cshtml" />
+    <Content Include="Views\Districts\Create.cshtml" />
+    <Content Include="Views\Districts\Delete.cshtml" />
+    <Content Include="Views\Districts\Details.cshtml" />
+    <Content Include="Views\Districts\Edit.cshtml" />
+    <Content Include="Views\Districts\Index.cshtml" />
+    <Content Include="Views\Streets\Create.cshtml" />
+    <Content Include="Views\Streets\Delete.cshtml" />
+    <Content Include="Views\Streets\Details.cshtml" />
+    <Content Include="Views\Streets\Edit.cshtml" />
+    <Content Include="Views\Streets\Index.cshtml" />
+    <Content Include="Views\AddNewUser\Index.cshtml" />
+    <Content Include="Views\QueryOne\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

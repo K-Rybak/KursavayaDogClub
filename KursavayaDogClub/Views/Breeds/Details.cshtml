@@ -1,0 +1,26 @@
+﻿@model KursavayaDogClub.Models.BREED
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BREED</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BREED_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BREED_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BREED_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

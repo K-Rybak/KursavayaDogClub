@@ -14,6 +14,8 @@ namespace KursavayaDogClub.Controllers
 
         public ActionResult Index()
         {
+            Session["user"] = null;
+
             return View();
         }
 
@@ -24,8 +26,8 @@ namespace KursavayaDogClub.Controllers
 
             if (autification != null)
             {
-                Session["user"] = autification;
-                return RedirectPermanent("/Chat/Index");
+                Session["user"] = autification.LOGIN;
+                return RedirectPermanent("/DOGsPage/Index");
             }
             else
                 return Redirect("/");
