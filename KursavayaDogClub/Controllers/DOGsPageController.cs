@@ -21,8 +21,31 @@ namespace KursavayaDogClub.Controllers
                 return Redirect("/");
 
             var dOG = db.DOG.Include(d => d.BREED).Include(d => d.OWNER);
-            
+            ViewBag.ID_BREED = new SelectList(db.BREED, "BREED_ID", "BREED_NAME");
             return View(dOG.ToList());
+        }
+
+        // запрос на подбор кандидатур
+        public ActionResult GetDogs(int? BREED_ID)
+        {
+            var query = from awardsdogs in db.DOG_AWARD
+                        join dogs in db.DOG on awardsdogs.DOG_ID equals
+                        dogs.DOG_ID
+                        join awards in db.AWARD on awardsdogs.AWARD_ID
+                        equals awards.AWARD_ID
+                        join breeds in db.BREED on dogs.ID_BREED equals
+                        breeds.BREED_ID
+                        where breeds.BREED_ID == BREED_ID
+                        group awards by dogs.DOG_NAME into g
+                        select new QueryOneModel
+                        {
+                            Surname = g.Key,
+                            Count = g.Count()
+                        };
+
+            ViewBag.count = query.ToList();
+
+            return View();
         }
 
         // GET: DOGsPage/Details/5
@@ -56,8 +79,6 @@ namespace KursavayaDogClub.Controllers
         }
 
         // POST: DOGsPage/Create
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DOG_NAME,OWNER_ID,BIRTH_DATE,DEATH_DATE,SEX,ID_FATHER,ID_MOTHER,ID_BREED")] DOG dOG)
@@ -95,8 +116,6 @@ namespace KursavayaDogClub.Controllers
         }
 
         // POST: DOGsPage/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DOG_ID,DOG_NAME,OWNER_ID,BIRTH_DATE,DEATH_DATE,SEX,ID_FATHER,ID_MOTHER,ID_BREED")] DOG dOG)

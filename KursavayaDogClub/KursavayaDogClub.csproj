@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OWNERsController.cs" />
     <Compile Include="Controllers\QueryOneController.cs" />
+    <Compile Include="Controllers\QueryThreeController.cs" />
     <Compile Include="Controllers\QueryTwoController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\StreetsController.cs" />
@@ -235,6 +236,8 @@
     <Content Include="Views\AddNewUser\Index.cshtml" />
     <Content Include="Views\QueryOne\Index.cshtml" />
     <Content Include="Views\QueryTwo\Index.cshtml" />
+    <Content Include="Views\QueryThree\Index.cshtml" />
+    <Content Include="Views\DOGsPage\GetDogs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
