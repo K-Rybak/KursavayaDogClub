@@ -9,5 +9,8 @@ namespace KursavayaDogClub.Models
     {
         public string Surname { get; set; }
         public int Count { get; set; }
+        public DateTime? EarlyDate { get; set; }
+        public DateTime? LaterDate { get; set; }
+
     }
 }

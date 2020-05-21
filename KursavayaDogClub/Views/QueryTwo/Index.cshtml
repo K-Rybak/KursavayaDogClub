@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <p>Порода</p>
+        </th>
+        <th>
+            <p>Количество собак</p>
+        </th>
+        <th>
+            <p>Ранняя дата рождения</p>
+        </th>
+        <th>
+            <p>Поздняя дата рождения</p>
+        </th>
+    </tr>
+    @foreach (var item in ViewBag.count)
+    {
+    <tr>
+        <td>
+            <p>@item.Surname</p>
+        </td>
+        <td>
+            <p>@item.Count</p>
+        </td>
+        <td>
+            @if (item.EarlyDate != null)
+            {
+                <p>@item.EarlyDate.ToShortDateString().ToString()</p>
+            }
+        </td>
+        <td>
+            @if (item.LaterDate != null)
+            {
+                <p>@item.LaterDate.ToShortDateString().ToString()</p>
+            }
+        </td>
+    </tr>
+    }
+</table>
