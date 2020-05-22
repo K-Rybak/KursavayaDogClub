@@ -1,0 +1,39 @@
+﻿<table class="table" id="results">
+    <tr>
+        <th>
+            <p>Кличка</p>
+        </th>
+        <th>
+            <p>Количество наград</p>
+        </th>
+        <th>
+            <p>Фамилия хозяина</p>
+        </th>
+        <th>
+            <p>Имя хозяина</p>
+        </th>
+        <th>
+            <p>Номер телефона</p>
+        </th>
+    </tr>
+    @foreach (var item in ViewBag.count)
+    {
+    <tr>
+        <td>
+            <p>@item.DogName</p>
+        </td>
+        <td>
+            <p>@item.Count</p>
+        </td>
+        <td>
+            <p>@item.Surname</p>
+        </td>
+        <td>
+            <p>@item.Name</p>
+        </td>
+        <td>
+            <p>@item.Phone</p>
+        </td>
+    </tr>
+    }
+</table>

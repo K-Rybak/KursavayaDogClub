@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AddNewUserController.cs" />
     <Compile Include="Controllers\AwardsController.cs" />
     <Compile Include="Controllers\BreedsController.cs" />
+    <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\DogAwardsController.cs" />
     <Compile Include="Controllers\DOGsPageController.cs" />
@@ -180,6 +181,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -237,7 +240,8 @@
     <Content Include="Views\QueryOne\Index.cshtml" />
     <Content Include="Views\QueryTwo\Index.cshtml" />
     <Content Include="Views\QueryThree\Index.cshtml" />
-    <Content Include="Views\DOGsPage\GetDogs.cshtml" />
+    <Content Include="Views\Candidate\Index.cshtml" />
+    <Content Include="Views\Candidate\GetDogs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

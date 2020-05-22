@@ -24,30 +24,7 @@ namespace KursavayaDogClub.Controllers
             ViewBag.ID_BREED = new SelectList(db.BREED, "BREED_ID", "BREED_NAME");
             return View(dOG.ToList());
         }
-
-        // запрос на подбор кандидатур
-        public ActionResult GetDogs(int? BREED_ID)
-        {
-            var query = from awardsdogs in db.DOG_AWARD
-                        join dogs in db.DOG on awardsdogs.DOG_ID equals
-                        dogs.DOG_ID
-                        join awards in db.AWARD on awardsdogs.AWARD_ID
-                        equals awards.AWARD_ID
-                        join breeds in db.BREED on dogs.ID_BREED equals
-                        breeds.BREED_ID
-                        where breeds.BREED_ID == BREED_ID
-                        group awards by dogs.DOG_NAME into g
-                        select new QueryOneModel
-                        {
-                            Surname = g.Key,
-                            Count = g.Count()
-                        };
-
-            ViewBag.count = query.ToList();
-
-            return View();
-        }
-
+    
         // GET: DOGsPage/Details/5
         public ActionResult Details(int? id)
         {

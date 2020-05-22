@@ -4,22 +4,8 @@
     ViewBag.Title = "Собаки";
 }
 
-<div class="row">
-    <div class="col-md-2">
-        <h2>Собаки</h2>
-    </div>
-    <form  class="input-group col-md-8" method="get" action="/DOGsPage/GetDogs">
-        <div style="margin-top:20px">
-            @Html.DropDownList("BREED_ID", ViewBag.ID_BREED as SelectList, htmlAttributes: new { @class = "form-control" })
-            <button type="submit" class="btn btn-default" style="margin-left:10px; margin-right:5px">Выбрать</button>
-            <span class="label label-default">Выбор кандидата на выставку</span>
-        </div>
-        
-    </form>
- </div>
 
-
-
+<h2>Собаки</h2>
 
 <p>
     @Html.ActionLink("Добавить запись", "Create")
