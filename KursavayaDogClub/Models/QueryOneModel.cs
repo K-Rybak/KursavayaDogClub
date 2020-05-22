@@ -14,6 +14,7 @@ namespace KursavayaDogClub.Models
         public string Phone { get; set; }
         public DateTime? EarlyDate { get; set; }
         public DateTime? LaterDate { get; set; }
+        public TimeSpan Age { get; set; }
 
     }
 }
