@@ -17,6 +17,7 @@ namespace KursavayaDogClub.Models
         public virtual DbSet<BREED> BREED { get; set; }
         public virtual DbSet<DISTRICT> DISTRICT { get; set; }
         public virtual DbSet<DOG> DOG { get; set; }
+        public virtual DbSet<DOG_ARCHIVE> DOG_ARCHIVE { get; set; }
         public virtual DbSet<DOG_AWARD> DOG_AWARD { get; set; }
         public virtual DbSet<OWNER> OWNER { get; set; }
         public virtual DbSet<STREET> STREET { get; set; }
@@ -72,6 +73,35 @@ namespace KursavayaDogClub.Models
                 .HasMany(e => e.DOG_AWARD)
                 .WithRequired(e => e.DOG)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.DOG_ID_A)
+                .HasPrecision(38, 0);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.DOG_NAME_A)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.OWNER_ID_A)
+                .HasPrecision(38, 0);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.SEX_A)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.ID_FATHER_A)
+                .HasPrecision(38, 0);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.ID_MOTHER_A)
+                .HasPrecision(38, 0);
+
+            modelBuilder.Entity<DOG_ARCHIVE>()
+                .Property(e => e.ID_BREED_A)
+                .HasPrecision(38, 0);
 
             modelBuilder.Entity<DOG_AWARD>()
                 .Property(e => e.ID_PRIMARY)

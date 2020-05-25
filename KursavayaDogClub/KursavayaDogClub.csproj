@@ -147,6 +147,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddNewUserController.cs" />
+    <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\AwardsController.cs" />
     <Compile Include="Controllers\BreedsController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Models\DISTRICT.cs" />
     <Compile Include="Models\DOG.cs" />
     <Compile Include="Models\DogDbContext.cs" />
+    <Compile Include="Models\DOG_ARCHIVE.cs" />
     <Compile Include="Models\DOG_AWARD.cs" />
     <Compile Include="Models\OWNER.cs" />
     <Compile Include="Models\QueryOneModel.cs" />
@@ -260,6 +262,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Archive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
