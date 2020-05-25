@@ -16,9 +16,9 @@ namespace KursavayaDogClub.Models
         public string DOG_NAME_A { get; set; }
 
         public decimal? OWNER_ID_A { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd'.'MM'.'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? BIRTH_DATE_A { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd'.'MM'.'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DEATH_DATE_A { get; set; }
 
         [StringLength(6)]

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KursavayaDogClub.Models.DOG_ARCHIVE>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>АРХИВ</h2>
+    </div>
+    @if (Session["user"].ToString() == "admin")
+    {
+        <div class="col-md-4" style="margin-top:20px">
+            @using (Ajax.BeginForm("GetDog", new AjaxOptions { UpdateTargetId = "results" }))
+            {
+                <button type="submit" class="btn btn-primary">Перенести в архив</button>
+            }
+            <h4 id="results"></h4>
+        </div>
+    }
+</div>
+
+<table class="table table-striped" style="margin-top:10px">
+    <tr>
+        <th>
+            @Html.Label("Кличка")
+        </th>
+        <th>
+            @Html.Label("Дата рождения")
+        </th>
+        <th>
+            @Html.Label("Дата смерти")
+        </th>
+        <th>
+            @Html.Label("Пол")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr> 
+        <td>
+            @Html.DisplayFor(modelItem => item.DOG_NAME_A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BIRTH_DATE_A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEATH_DATE_A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEX_A)
+        </td>   
+    </tr>
+    }
+</table>
+
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")

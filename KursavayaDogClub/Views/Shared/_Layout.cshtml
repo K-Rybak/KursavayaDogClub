@@ -43,6 +43,7 @@
                                     <li class="divider"></li>
                                     <li><a href="/Districts/Index">Список районов</a></li>
                                     <li><a href="/Streets/Index">Список улиц</a></li>
+                                    <li><a href="/Archive/Index">Архив</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">@Html.ActionLink("Добавить пользователя", "Index", "AddNewUser")</li>
@@ -66,6 +67,8 @@
                                     <li><a href="/QueryThree/Index">Статистика по наградам</a></li>
                                     <li class="divider"></li>
                                     <li><a href="/Candidate/Index">Подбор кандидата на выставку</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/Archive/Index">Архив</a></li>
                                 </ul>
                             </li>
                         }
@@ -75,7 +78,7 @@
                 {
                     using (Html.BeginForm("CreateDocument", "DOGsPage", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
                     {
-                        <button type="submit" class="btn btn-info btn-sm ">Скачать документ</button>
+                        <button type="submit" class="btn btn-primary btn-sm ">Скачать документ</button>
                     }
                     <button type="button" class="btn btn-default navbar-btn navbar-right btn-sm">@Html.ActionLink("Выход", "Index", "Home")</button>
                     <h4 class="navbar-text navbar-right" style="padding-right:8px;">

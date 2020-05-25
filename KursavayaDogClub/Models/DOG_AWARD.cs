@@ -12,7 +12,7 @@ namespace KursavayaDogClub.Models
         public int DOG_ID { get; set; }
 
         public int AWARD_ID { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd'.'MM'.'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DATE_AWARD { get; set; }
 
         [Key]

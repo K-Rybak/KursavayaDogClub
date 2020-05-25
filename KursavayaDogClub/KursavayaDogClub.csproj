@@ -259,10 +259,11 @@
     <Content Include="Views\DOGsPage\GetAge.cshtml" />
     <Content Include="Views\DOGsPage\GetOwner.cshtml" />
     <Content Include="Views\OWNERs\GetNumber.cshtml" />
+    <Content Include="Views\Archive\Index.cshtml" />
+    <Content Include="Views\Archive\GetDog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Archive\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
