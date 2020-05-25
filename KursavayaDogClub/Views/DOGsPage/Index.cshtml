@@ -1,107 +1,130 @@
 ﻿@model IEnumerable<KursavayaDogClub.Models.DOG>
 
-@{
-    ViewBag.Title = "Собаки";
-}
-
-
 <div class="row">
     <div class="col-md-2">
-        <h2>Собаки</h2>
+        <h2>СОБАКИ</h2>
+        @if (Session["user"].ToString() == "admin")
+        {
+            <ul class="pager">
+                <li class="previous">@Html.ActionLink("Добавить запись", "Create")</li>
+            </ul>
+        }
     </div>
-    <div class="input-group col-md-8">
-        @{Html.BeginForm("CreateDocument", "DOGsPage", FormMethod.Post);
-            {
-              <div>
-                  <button type="submit" class="btn btn-default" style="margin-left:10px; margin-right:5px">Выбрать</button>
-                  <span class="label label-default">Выбор пароды</span>
-              </div>
-
-            }
-            Html.EndForm();
-         }
+    <div class="col-md-4">
+        @using (Ajax.BeginForm("GetAge", null, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "input-group" }))
+        {
+            <div class="input-group" style="margin-top:20px">
+                <input type="date" class="form-control" name="birth_date">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Выбрать</button>
+                </span>
+            </div>
+        }
+        <span class="label label-info">Выбирете дату, что бы узнать возраст</span><br />
+        <h4 id="results"></h4>
+    </div>
+    <div class="col-md-4 input-group">
+        @using (Ajax.BeginForm("GetOwner", new AjaxOptions { UpdateTargetId = "result" }))
+        {
+            <div style="margin-top:20px">
+                @Html.DropDownList("OWNER_ID", ViewBag.OWNER_ID as SelectList, htmlAttributes: new { @class = "form-control" })
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Выбрать</button>
+                </span>
+            </div>
+        }
+        <span class="label label-info">Выбирете владельца, для отображения инициалов</span><br />
+        <h4 id="result"></h4>  
     </div>
 </div>
 
-<p>
-    @Html.ActionLink("Добавить запись", "Create")
-</p>
 
-<table class="table table-striped">
+<table class="table table-striped" style="margin-top:10px">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BREED.BREED_NAME)
+            @Html.Label("Порода")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OWNER.OWNER_SURNAME)
+            @Html.Label("Фамилия")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DOG_NAME)
+            @Html.Label("Кличка")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BIRTH_DATE)
+            @Html.Label("Дата рождения")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DEATH_DATE)
+            @Html.Label("Дата смерти")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SEX)
+            @Html.Label("Пол")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_FATHER)
+            @Html.Label("Отец")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_MOTHER)
+            @Html.Label("Мать")
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BREED.BREED_NAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OWNER.OWNER_SURNAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOG_NAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BIRTH_DATE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DEATH_DATE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SEX)
-            </td>
-            @{
-                var father = Model.Where(x => x.DOG_ID == item.ID_FATHER).Select(x => x.DOG_NAME).FirstOrDefault();
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BREED.BREED_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OWNER.OWNER_SURNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOG_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BIRTH_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEATH_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEX)
+        </td>
+        @{
+            var father = Model.Where(x => x.DOG_ID == item.ID_FATHER).Select(x => x.DOG_NAME).FirstOrDefault();
+        }
+        <td>
+            @if (father != null)
+            {
+                @Html.DisplayFor(modelItem => father)
             }
-            <td>
-                @if (father != null)
-                {
-                    @Html.DisplayFor(modelItem => father)
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.ID_FATHER)
-                }
-            </td>
-            @{
-                var mother = Model.Where(x => x.DOG_ID == item.ID_MOTHER).Select(x => x.DOG_NAME).FirstOrDefault();
+            else
+            {
+                @Html.DisplayFor(modelItem => item.ID_FATHER)
             }
+        </td>
+        @{
+            var mother = Model.Where(x => x.DOG_ID == item.ID_MOTHER).Select(x => x.DOG_NAME).FirstOrDefault();
+        }
+        <td>
+            @Html.DisplayFor(modelItem => mother)
+        </td>
+        @if (Session["user"].ToString() == "admin")
+        {
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.DOG_ID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id = item.DOG_ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.DOG_ID })
+        </td>
+        }
+        else
+        {
             <td>
-                @Html.DisplayFor(modelItem => mother)
+                @Html.ActionLink("Подробнее", "Details", new { id = item.DOG_ID })     
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.DOG_ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.DOG_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.DOG_ID })
-            </td>
-        </tr>
+        }
+    </tr>
     }
-
 </table>
+
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")

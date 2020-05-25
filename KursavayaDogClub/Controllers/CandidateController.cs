@@ -32,7 +32,8 @@ namespace KursavayaDogClub.Controllers
                         join owners in db.OWNER on dogs.OWNER_ID equals
                         owners.OWNER_ID
                         where breeds.BREED_ID == BREED_ID
-                        group new { awards } by new { dogs.DOG_NAME, owners.OWNER_SURNAME, owners.OWNER_NAME, owners.NUM_PHONE}  into g
+                        group new { awards } by new { dogs.DOG_NAME, owners.OWNER_SURNAME,
+                            owners.OWNER_NAME, owners.NUM_PHONE}  into g
                         select new QueryOneModel
                         {
                             DogName = g.Key.DOG_NAME,

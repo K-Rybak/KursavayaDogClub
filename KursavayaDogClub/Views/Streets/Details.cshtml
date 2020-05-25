@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Подробнее</h2>
 
 <div>
-    <h4>STREET</h4>
+    <h4>УЛИЦА</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.STREET_NAME)
+            @Html.Label("Район")
         </dt>
 
         <dd>
@@ -20,7 +20,6 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.STREET_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<ul class="pager">
+    <li class="previous">@Html.ActionLink("Вернуться", "Index")</li>
+</ul>

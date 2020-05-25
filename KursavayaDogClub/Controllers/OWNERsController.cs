@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KursavayaDogClub.Models;
+using Oracle.ManagedDataAccess.Client;
 
 namespace KursavayaDogClub.Controllers
 {
@@ -17,10 +18,25 @@ namespace KursavayaDogClub.Controllers
         // GET: OWNERs
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+                return Redirect("/");
+
             var oWNER = db.OWNER.Include(o => o.DISTRICT).Include(o => o.STREET);
             return View(oWNER.ToList());
         }
 
+        public ActionResult GetNumber(string number)
+        {
+            var parametrs = new[]
+            {
+                new OracleParameter("p1", Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2)
+            };
+
+            parametrs[0].Value = number;
+            var formatNumber = db.Database.SqlQuery<String>("SELECT KINOLOGY_CLUB.FORMAT_NUMBER(:p1) FROM DUAL", parametrs);
+            ViewBag.Number = formatNumber.ElementAt(0);
+            return PartialView();
+        }
         // GET: OWNERs/Details/5
         public ActionResult Details(int? id)
         {
@@ -134,3 +150,4 @@ namespace KursavayaDogClub.Controllers
         }
     }
 }
+

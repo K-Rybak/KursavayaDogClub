@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Подробнее</h2>
 
 <div>
-    <h4>DOG</h4>
+    <h4>СОБАКА</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.BREED.BREED_NAME)
+            @Html.Label("Порода")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OWNER.OWNER_SURNAME)
+            @Html.Label("Фамилия")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOG_NAME)
+            @Html.Label("Кличка")
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BIRTH_DATE)
+            @Html.Label("Дата рождения")
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DEATH_DATE)
+            @Html.Label("Дата смерти")
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SEX)
+            @Html.Label("Пол")
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ID_FATHER)
+            @Html.Label("Отец")
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ID_MOTHER)
+            @Html.Label("Мать")
         </dt>
 
         <dd>
@@ -76,7 +76,9 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DOG_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<ul class="pager">
+    <li class="previous">
+        @Html.ActionLink("Вернуться", "Index")
+    </li>
+</ul>
+

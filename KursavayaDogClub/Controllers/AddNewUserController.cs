@@ -20,11 +20,18 @@ namespace KursavayaDogClub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "LOGIN, PASSWORD")] AUTORIZE autorize)
         {
+            //Проверка на имеющегося пользователя в таблице
+            var user = db.AUTORIZE.Where(x => x.LOGIN == autorize.LOGIN).Select(x => x.ID_USER).ToString();
+
             if (ModelState.IsValid)
             {
-                db.AUTORIZE.Add(autorize);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (user == null)
+                {
+                    db.AUTORIZE.Add(autorize);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
             }
 
             return View(autorize);

@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Список районов</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<ul class="pager">
+    <li class="previous">@Html.ActionLink("Добавить запись", "Create")</li>
+</ul>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DISTRICT_NAME)
+            @Html.Label("Район")
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.DISTRICT_NAME)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DISTRICT_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DISTRICT_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DISTRICT_ID })
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.DISTRICT_ID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id = item.DISTRICT_ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.DISTRICT_ID })
         </td>
     </tr>
 }

@@ -4,42 +4,54 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>НАГРАДЫ</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+@if (Session["user"].ToString() == "admin")
+{
+    <ul class="pager">
+        <li class="previous">@Html.ActionLink("Добавить запись", "Create")</li>
+    </ul>
+}
+<table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AWARD.AWARD_NAME)
+            @Html.Label("Награда")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DOG.DOG_NAME)
+            @Html.Label("Кличка")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DATE_AWARD)
+            @Html.Label("Дата получения")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AWARD.AWARD_NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOG.DOG_NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATE_AWARD)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PRIMARY }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_PRIMARY }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PRIMARY })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AWARD.AWARD_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOG.DOG_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATE_AWARD)
+            </td>
+            @if (Session["user"].ToString() == "admin")
+            {
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.ID_PRIMARY }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.ID_PRIMARY }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.ID_PRIMARY })
+                </td>
+             }
+             else
+             {
+                <td>
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.ID_PRIMARY })
+                </td>
+             }  
+        </tr>
+    }
 </table>

@@ -11,18 +11,21 @@
             <p>
                 <label for="user_login">
                     Имя пользователя<br>
-                    <input class="input" id="username" name="username" size="20"
+                    <input class="form-control" id="username" name="username" size="20"
                            type="text" value="">
                 </label>
             </p>
             <p>
                 <label for="user_pass">
                     Пароль<br>
-                    <input class="input" id="password" name="password" size="32" type="password" value="">
+                    <input class="form-control" id="password" name="password" size="20" type="password" value="">
                 </label>
             </p>
-            <p class="submit"><input class="button" name="login" type="submit" value="Войти"></p>
-            <p><a href="/Registration/Reg">Регистрация</a></p>
+            <input class="btn btn-success" name="login" type="submit" value="Войти">
+
+            <ul class="pager">
+                <li class="previous">@Html.ActionLink("Регистрация", "Reg", "Registration")</li>
+            </ul>
         </form>
     </div>
 </div>

@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -68,13 +68,16 @@
                                     <li><a href="/Candidate/Index">Подбор кандидата на выставку</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">@Html.ActionLink("Скачать документ", "CreateDocument", "DOGsPage")</li>
                         }
                     }
                 </ul>
                 @if (Session["user"] != null)
                 {
-                    <button type="button" class="btn btn-default navbar-btn navbar-right">@Html.ActionLink("Выход", "Index", "Home")</button>
+                    using (Html.BeginForm("CreateDocument", "DOGsPage", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                    {
+                        <button type="submit" class="btn btn-info btn-sm ">Скачать документ</button>
+                    }
+                    <button type="button" class="btn btn-default navbar-btn navbar-right btn-sm">@Html.ActionLink("Выход", "Index", "Home")</button>
                     <h4 class="navbar-text navbar-right" style="padding-right:8px;">
                         @Session["user"]
                     </h4>
@@ -82,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container">
         @RenderBody()
         <hr />
         <footer>

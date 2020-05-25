@@ -254,6 +254,9 @@
     <Content Include="Views\QueryThree\Index.cshtml" />
     <Content Include="Views\Candidate\Index.cshtml" />
     <Content Include="Views\Candidate\GetDogs.cshtml" />
+    <Content Include="Views\DOGsPage\GetAge.cshtml" />
+    <Content Include="Views\DOGsPage\GetOwner.cshtml" />
+    <Content Include="Views\OWNERs\GetNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

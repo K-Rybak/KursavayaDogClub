@@ -4,15 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Список наград</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<ul class="pager">
+    <li class="previous">@Html.ActionLink("Добавить запись", "Create")</li>
+</ul>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AWARD_NAME)
+            @Html.Label("Название награды")
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.AWARD_NAME)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AWARD_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AWARD_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AWARD_ID })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.AWARD_ID }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.AWARD_ID }) |
+            @Html.ActionLink("Удаление", "Delete", new { id=item.AWARD_ID })
         </td>
     </tr>
 }

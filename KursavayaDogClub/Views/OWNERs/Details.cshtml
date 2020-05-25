@@ -1,17 +1,17 @@
 ﻿@model KursavayaDogClub.Models.OWNER
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Детали";
 }
 
-<h2>Details</h2>
+<h2>Подробнее</h2>
 
 <div>
-    <h4>OWNER</h4>
+    <h4>ВЛАДЕЛЕЦ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DISTRICT.DISTRICT_NAME)
+            @Html.Label("Район")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.STREET.STREET_NAME)
+            @Html.Label("Улица")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OWNER_SURNAME)
+            @Html.Label("Фамилия")
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OWNER_NAME)
+            @Html.Label("Имя")
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OWNER_PATRONYMIC)
+            @Html.Label("Отчество")
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NUM_HOUSE)
+            @Html.Label("Дом")
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NUM_APARTMENT)
+            @Html.Label("Квартира")
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NUM_PHONE)
+            @Html.Label("Телефон")
         </dt>
 
         <dd>
@@ -76,7 +76,10 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OWNER_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<ul class="pager">
+    <li class="previous">
+        @Html.ActionLink("Вернуться", "Index")
+    </li>
+</ul>
+

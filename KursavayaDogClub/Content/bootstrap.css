@@ -1960,6 +1960,9 @@ pre code {
   .col-md-5 {
     width: 41.66666667%;
   }
+    .col-md-4:nth-child(3n+1) {
+        clear: left;
+    }
   .col-md-4 {
     width: 33.33333333%;
   }

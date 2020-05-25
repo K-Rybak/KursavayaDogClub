@@ -4,15 +4,15 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Удаление</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Вы уверенны, что хотите удалить запись?</h3>
 <div>
-    <h4>AWARD</h4>
+    <h4>НАГРАДА</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AWARD_NAME)
+            @Html.Label("Награда")
         </dt>
 
         <dd>
@@ -24,9 +24,12 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <ul class="pager">
+            <li class="previous">@Html.ActionLink("Вернуться", "Index")</li>
+        </ul>
+
+    </div>
     }
 </div>

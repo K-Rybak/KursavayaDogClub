@@ -4,41 +4,61 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div class="row">
+    <div class="col-md-3">
+        <h2>ВЛАДЕЛЬЦЫ</h2>
+        @if (Session["user"].ToString() == "admin")
+        {
+            <ul class="pager">
+                <li class="previous">@Html.ActionLink("Добавить запись", "Create")</li>
+            </ul>
+        }
+    </div>
+    <div class="col-md-4">
+        @using (Ajax.BeginForm("GetNumber", null, new AjaxOptions { UpdateTargetId = "results" }, new { @class = "input-group" }))
+        {
+            <div class="input-group" style="margin-top:20px">
+                <input type="text" class="form-control" name="number" maxlength="11" pattern="^(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,11}$">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">Выбрать</button>
+                </span>
+            </div>
+        }
+        <span class="label label-info">Введите номер телефона, для приведения к правильному формату</span><br />
+        <h4 id="results"></h4>
+    </div>
+</div>
+<table class="table table-striped" style="margin-top:10px">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DISTRICT.DISTRICT_NAME)
+            @Html.Label("Район")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.STREET.STREET_NAME)
+            @Html.Label("Улица")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OWNER_SURNAME)
+            @Html.Label("Фамилия")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OWNER_NAME)
+            @Html.Label("Имя")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OWNER_PATRONYMIC)
+            @Html.Label("Отчество")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NUM_HOUSE)
+            @Html.Label("Дом")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NUM_APARTMENT)
+            @Html.Label("Квартира")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NUM_PHONE)
+            @Html.Label("Телефон")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.DISTRICT.DISTRICT_NAME)
@@ -64,12 +84,23 @@
         <td>
             @Html.DisplayFor(modelItem => item.NUM_PHONE)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OWNER_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OWNER_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OWNER_ID })
-        </td>
+        @if (Session["user"].ToString() == "admin")
+        {
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.OWNER_ID }) |
+                @Html.ActionLink("Подробнее", "Details", new { id = item.OWNER_ID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.OWNER_ID })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Подробнее", "Details", new { id = item.OWNER_ID })
+            </td>          
+        }
     </tr>
-}
+    }
 
 </table>
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")

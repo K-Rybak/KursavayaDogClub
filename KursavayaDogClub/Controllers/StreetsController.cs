@@ -46,7 +46,7 @@ namespace KursavayaDogClub.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "STREET_ID,STREET_NAME")] STREET sTREET)
+        public ActionResult Create([Bind(Include = "STREET_NAME")] STREET sTREET)
         {
             if (ModelState.IsValid)
             {

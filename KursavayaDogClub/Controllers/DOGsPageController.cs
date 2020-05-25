@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using KursavayaDogClub.Models;
+using Oracle.ManagedDataAccess.Client;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
@@ -24,9 +25,40 @@ namespace KursavayaDogClub.Controllers
 
             var dOG = db.DOG.Include(d => d.BREED).Include(d => d.OWNER);
             ViewBag.ID_BREED = new SelectList(db.BREED, "BREED_ID", "BREED_NAME");
+            ViewBag.OWNER_ID = new SelectList(db.OWNER, "OWNER_ID", "OWNER_SURNAME");
             return View(dOG.ToList());
         }
-    
+        //запрос с использованием функции написанной в СУБД Oracle
+        //запрос возвращает возраст в годах и месяцах - принимает дату рождения
+        public ActionResult GetAge(DateTime? birth_date)
+        {
+            var parametrs = new[]
+            {
+                new OracleParameter("p1", Oracle.ManagedDataAccess.Client.OracleDbType.Date)
+            };
+
+            parametrs[0].Value = birth_date;
+            var age = db.Database.SqlQuery<String>("SELECT KINOLOGY_CLUB.GET_AGE(:p1) FROM DUAL", parametrs);
+            ViewBag.Age = age.ElementAt(0);
+            
+            return PartialView();
+        }
+        //запрос с использованием функции написанной в СУБД Oracle
+        //запрос возвращает инициалы владельца - принимает Id владельца
+        public ActionResult GetOwner(int OWNER_ID)
+        {
+            var parametrs = new[]
+            {
+                new OracleParameter("p1", Oracle.ManagedDataAccess.Client.OracleDbType.Int32)
+            };
+
+            parametrs[0].Value = OWNER_ID;
+            var owner = db.Database.SqlQuery<String>("SELECT KINOLOGY_CLUB.GET_SHORT_FIO(:p1) FROM DUAL", parametrs);
+            ViewBag.OWNER = owner.ElementAt(0);
+
+            return PartialView();
+        }
+
         // GET: DOGsPage/Details/5
         public ActionResult Details(int? id)
         {
@@ -249,3 +281,4 @@ namespace KursavayaDogClub.Controllers
         }
     }
 }
+

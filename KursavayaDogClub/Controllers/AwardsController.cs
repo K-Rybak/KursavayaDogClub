@@ -46,7 +46,7 @@ namespace KursavayaDogClub.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AWARD_ID,AWARD_NAME")] AWARD aWARD)
+        public ActionResult Create([Bind(Include = "AWARD_NAME")] AWARD aWARD)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace KursavayaDogClub.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AWARD_ID,AWARD_NAME")] AWARD aWARD)
+        public ActionResult Edit([Bind(Include = "AWARD_NAME")] AWARD aWARD)
         {
             if (ModelState.IsValid)
             {

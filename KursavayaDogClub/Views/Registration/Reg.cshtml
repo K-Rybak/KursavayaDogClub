@@ -10,18 +10,20 @@
             <p>
                 <label for="user_login">
                     Введите логин<br>
-                    <input class="input" id="username" name="LOGIN" size="20" type="text" value="">
+                    <input class="form-control" id="username" name="LOGIN" size="20" type="text" value="">
                 </label>
             </p>
             <p>
                 <label for="user_pass">
                     Введите пароль<br>
-                    <input class="input" id="password" name="PASSWORD" size="32" type="password" value="">
+                    <input class="form-control" id="password" name="PASSWORD" size="20" type="password" value="">
                 </label>
             </p>
 
-            <p class="submit"><input class="button" id="registr" type="submit" value="Зарегистрироваться"></p>
-            <p class="regtext">Уже зарегистрированы? <a href="/Home/Index">Авторизация</a></p>
+            <input class="btn btn-success" id="registr" type="submit" value="Зарегистрироваться">
+            <p class="regtext">Уже зарегистрированы? <ul class="pager">
+    <li class="previous">@Html.ActionLink("Авторизация", "Index", "Home")</li>
+</ul></p>
         </form>
     </div>
 </div>

@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Подробнее</h2>
 
 <div>
-    <h4>DOG_AWARD</h4>
+    <h4>НАГРАДЫ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AWARD.AWARD_NAME)
+            @Html.Label("Награда")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOG.DOG_NAME)
+            @Html.Label("Кличка")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DATE_AWARD)
+            @Html.Label("Дата получения")
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PRIMARY }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<ul class="pager">
+    <li class="previous">@Html.ActionLink("Вернуться", "Index")</li> 
+</ul>
