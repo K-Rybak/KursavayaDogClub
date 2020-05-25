@@ -21,9 +21,12 @@
             </p>
 
             <input class="btn btn-success" id="registr" type="submit" value="Зарегистрироваться">
-            <p class="regtext">Уже зарегистрированы? <ul class="pager">
-    <li class="previous">@Html.ActionLink("Авторизация", "Index", "Home")</li>
-</ul></p>
+            <p class="text-danger">@Session["username_exist"]</p>
+            <p class="regtext">
+                Уже зарегистрированы? <ul class="pager">
+                    <li class="previous">@Html.ActionLink("Авторизация", "Index", "Home")</li>
+                </ul>
+            </p>
         </form>
     </div>
 </div>

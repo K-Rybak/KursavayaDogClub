@@ -30,6 +30,10 @@ namespace KursavayaDogClub.Controllers
                     db.AUTORIZE.Add(autorize);
                     db.SaveChanges();
                     return RedirectToAction("Index");
+                } else
+                {
+                    Session["username_exist"] = "Такой пользователь уже существует";
+                    return RedirectToAction("Index");
                 }
                 
             }

@@ -27,10 +27,18 @@ namespace KursavayaDogClub.Controllers
             if (autification != null)
             {
                 Session["user"] = autification.LOGIN;
+                //USERJOURNAL journal = new USERJOURNAL();
+                //journal.LOGIN_JOURNAL = username;
+                //journal.TIME_JOURNAL = DateTime.Now;
+                //db.USERJOURNAL.Add(journal);
+                //db.SaveChanges(); //Записывается в журнал
                 return RedirectPermanent("/DOGsPage/Index");
-            }
-            else
+            } else
+            {
+                Session["error"] = "Неправильный логин/пароль";
                 return Redirect("/");
+            }
+
         }
     }
 }

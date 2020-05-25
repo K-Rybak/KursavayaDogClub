@@ -22,7 +22,7 @@
                 </label>
             </p>
             <input class="btn btn-success" name="login" type="submit" value="Войти">
-
+            <p class="text-danger">@Session["error"]</p>
             <ul class="pager">
                 <li class="previous">@Html.ActionLink("Регистрация", "Reg", "Registration")</li>
             </ul>

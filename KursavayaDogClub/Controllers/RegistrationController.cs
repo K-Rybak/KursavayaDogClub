@@ -19,9 +19,18 @@ namespace KursavayaDogClub.Controllers
         [HttpPost]
         public RedirectResult Reg(AUTORIZE user)
         {
-            db.AUTORIZE.Add(user);
-            db.SaveChanges();
-            return RedirectPermanent("/Home/Index");
+            var username = db.AUTORIZE.Where(x => x.LOGIN == user.LOGIN);
+
+            if (username.Count() == 0)
+            {
+                db.AUTORIZE.Add(user);
+                db.SaveChanges();
+                return RedirectPermanent("/Home/Index");
+            } else
+            {
+                Session["username_exist"] = "Такой пользователь уже существует";
+                return Redirect("Reg");
+            }      
         }
     }
 }
